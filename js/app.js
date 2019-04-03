@@ -93,7 +93,9 @@ const mutationObserver = new MutationObserver(
         // カードのモーダルでタスクのタイトルを編集したとき
         $target.hasClass('simpleTextarea--dynamic', 'simpleTextarea', 'autogrowTextarea-input') ||
         // リストが読み込まれたとき
-        $target.hasClass('SortableList-itemContainer', 'SortableList-itemContainer--column')
+        $target.hasClass('SortableList-itemContainer', 'SortableList-itemContainer--column') ||
+        // リストの名前が編集されたとき
+        $target.hasClass('BoardColumn', 'BoardBody-column')
       ) {
         updateListPoints()
       }
