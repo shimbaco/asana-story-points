@@ -1,0 +1,22 @@
+.js-sub-task-point-container {
+  padding: 0 30px;
+}
+
+.js-estimate-point,
+.js-actual-point {
+  border-radius: 3px;
+  padding: 1px;
+}
+
+.BoardColumnHeaderTitle > .js-estimate-point {
+  margin-left: 3px;
+}
+
+.js-estimate-point {
+  background-color: #b3e5fc;
+}
+
+.js-actual-point {
+  background-color: #c8e6c9;
+  margin-left: 3px;
+}
