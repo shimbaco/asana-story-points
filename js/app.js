@@ -22,14 +22,15 @@ const _getPoint = ($cardTitles, pointRegex) => {
     const match = titleText.match(pointRegex)
     return match ? Number(match[1]) : 0
   })
-
-  return _.reduce(
+  const point = _.reduce(
     points,
     (sum, point) => {
       return sum + point
     },
     0,
   )
+
+  return Math.round(point * 10) / 10
 }
 
 const _updateListPoints = ($headerTitle, pointType, point) => {
