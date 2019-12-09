@@ -52,8 +52,8 @@ const _displayPoint = ($target, className, template, point) => {
 
 const updateListPoints = () => {
   // ボード内の各リストをグルグルする
-  $('.SortableItem').each((_i, sortableItem) => {
-    const $cardTitles = $(sortableItem).find('.BoardCardWithCustomProperties-name')
+  $('.SortableItem.BoardBody-columnDraggableItemWrapper').each((_i, sortableItem) => {
+    const $cardTitles = $(sortableItem).find('.BoardCard-name')
     const $headerTitle = $(sortableItem).find('.BoardColumnHeaderTitle')
 
     const estimatePoint = _getPoint($cardTitles, /\((\d+\.*\d*)\)/)
@@ -65,18 +65,18 @@ const updateListPoints = () => {
 }
 
 const displaySubTaskPoints = () => {
-  const $itemTitles = $('.SingleTaskPane .TaskList .autogrowTextarea-shadow')
+  const $itemTitles = $('.TaskPaneSubtasks .TaskList .SubtaskTaskRow-taskName .autogrowTextarea-shadow')
   const pointData = {
     estimate: _getPoint($itemTitles, /\((\d+\.*\d*)\)/),
     actual: _getPoint($itemTitles, /\[(\d+\.*\d*)\]/),
   }
 
-  const $subTaskGrid = $('.SingleTaskPane .SubtaskGrid.SingleTaskPane-subtaskGrid')
+  const $subTaskGrid = $('.SingleTaskPaneSpreadsheet .TaskPaneSubtasks--hasSubtasks .LabeledRowStructure-label')
   let $subTaskPointContainer = $subTaskGrid.find('.js-sub-task-point-container')
   if (!$subTaskPointContainer.length) {
-    $subTaskPointContainer = $('<div>')
+    $subTaskPointContainer = $('<span>')
       .addClass('js-sub-task-point-container')
-      .prependTo($subTaskGrid)
+      .appendTo($subTaskGrid)
   }
 
   for (const key in pointConfigData) {
